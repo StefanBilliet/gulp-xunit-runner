@@ -1,0 +1,48 @@
+{
+  "name": "gulp-nunit-runner",
+  "version": "0.4.1",
+  "description": "A Gulp.js plugin to facilitate the running of NUnit unit tests on .Net assemblies. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "files": [
+    "index.js",
+    "lib/*.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keithmorris/gulp-nunit-runner.git"
+  },
+  "keywords": [
+    "gulp",
+    "nunit",
+    ".net",
+    "gulpplugin"
+  ],
+  "author": "Keith Morris <standupbass@gmail.com> (http://standupbass.wordpress.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keithmorris/gulp-nunit-runner/issues"
+  },
+  "homepage": "https://github.com/keithmorris/gulp-nunit-runner",
+  "dependencies": {
+    "event-stream": "^3.1.7",
+    "gulp-util": "^3.0.0",
+    "lodash": "^2.4.1",
+    "sax": "~0.6.1",
+    "temp": "~0.8.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "gulp": "^3.8.11",
+    "gulp-filter": "^1.0.2",
+    "gulp-jshint": "^1.9.0",
+    "gulp-mocha": "^1.1.1",
+    "gulp-util": "^3.0.4",
+    "lodash": "^2.4.1",
+    "mocha": "^1.21.4"
+  }
+}
