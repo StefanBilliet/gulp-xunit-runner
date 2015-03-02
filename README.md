@@ -3,7 +3,7 @@
 From the root of your project (where your `gulpfile.js` is), issue the following command:
 
 ```bat
-npm install --save-dev gulp-nunit-runner
+npm install --save-dev gulp-xunit-runner
 ```
 
 ##Usage
