@@ -1,4 +1,9 @@
 #gulp-xunit-runner
+
+[![Build Status](https://travis-ci.org/keithmorris/gulp-xunit-runner.svg?branch=master)](https://travis-ci.org/keithmorris/gulp-xunit-runner)
+
+A [Gulp.js](http://gulpjs.com/) plugin to facilitate running [XUnit](http://xunit.github.io/) tests on .NET assemblies. Much of this work was inspired by the [gulp-xunit-runner](https://github.com/keithmorris/gulp-xunit-runner) plugin.
+
 ##Installation
 From the root of your project (where your `gulpfile.js` is), issue the following command:
 
@@ -15,7 +20,7 @@ var gulp = require('gulp'),
 
 gulp.task('unit-test', function () {
   return gulp.src(['**/*.Test.dll'], {read: false})
-    .pipe(nunit({
+    .pipe(xunit({
       executable: 'C:/xunit/bin/xunit-console.exe',
     }));
 });
@@ -66,8 +71,8 @@ xunit({
     // If not specified the XUnit bin folder must be in the `PATH`.
     executable: 'path to xunit console runner',
 
-    // The options below map directly to the NUnit console runner. See here
-    // for more info: http://www.nunit.org/index.php?p=consoleCommandLine&r=2.6.3
+    // The options below map directly to the XUnit console runner. See here
+    // for more info: http://www.xunit.org/index.php?p=consoleCommandLine&r=2.6.3
     options: {
 
         // Set parallelisation based on option.
@@ -126,10 +131,10 @@ xunit({
         // Output results to xUnit.net v1 style XML file.
         xmlv1: 'filename',
 
-		// Output results to NUnit-style XML file.
+        // Output results to NUnit-style XML file.
         nunit: 'filename',
 
-		// Output results to HTML file.
+        // Output results to HTML file.
         html: 'filename'
     }
 });
