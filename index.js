@@ -116,15 +116,13 @@ function run(stream, files, options) {
 	};
 
 	var exe = runner.getExecutable(options);
-	var args = (runner.getArguments(options, assemblies));//.concat(["-xml", "Test.xml"]);
-debugger;
+	var args = (runner.getArguments(options, assemblies));
 	var child = child_process.spawn(
 		exe,
 		args,
 		opts);
 
 	child.on('error', function (e) {
-		debugger;
 		fail(stream, e.code === 'ENOENT' ? 'Unable to find \'' + exe + '\'.' : e.message);
 	});
 
@@ -141,8 +139,7 @@ debugger;
 }
 
 function trim() {
-
-	var args = Array.prototype.slice.call(arguments)
+	var args = Array.prototype.slice.call(arguments);
 	var source = args[0];
 	var replacements = args.slice(1).join(',');
 	var regex = new RegExp("^[" + replacements + "]+|[" + replacements + "]+$", "g");

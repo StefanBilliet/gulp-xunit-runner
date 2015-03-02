@@ -143,6 +143,6 @@ var path = require('path');
 						'TestResults.xml'
 					]);
 			});			
-		}); // end describe
-	}); // end describe suite
+		});
+	});
 }());
