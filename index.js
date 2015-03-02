@@ -53,7 +53,6 @@ runner.getArguments = function (options, assemblies) {
 	if (options.options) {
 		args = args.concat(parseSwitches(options.options));
 	}
-
 	
 	return args;
 };
@@ -78,13 +77,11 @@ function parseSwitches(options) {
 	return filtered;
 }
 
-function fail(stream, msg) {
-	
+function fail(stream, msg) {	
 	stream.emit('error', new gutil.PluginError(PLUGIN_NAME, msg));
 }
 
-function end(stream) {
-	
+function end(stream) {	
 	stream.emit('end');
 }
 
