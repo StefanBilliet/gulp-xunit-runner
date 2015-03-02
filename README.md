@@ -1,5 +1,7 @@
 #gulp-xunit-runner
 
+[![Build Status](https://travis-ci.org/StefanBilliet/gulp-xunit-runner.svg?branch=master)](https://travis-ci.org/StefanBilliet/gulp-xunit-runner.svg?branch=master)
+
 A [gulp.js](http://gulpjs.com/) plugin to facilitate running [XUnit](http://xunit.github.io/) tests on .NET assemblies. Much of this work was inspired by the [gulp-nxunit-runner](https://github.com/keithmorris/gulp-nunit-runner) plugin.
 
 ##Installation
