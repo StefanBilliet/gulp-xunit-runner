@@ -10,9 +10,9 @@ var _ = require('lodash'),
 	fs = require('fs'),
 	teamcity = require('./lib/teamcity');
 
-var PLUGIN_NAME = 'gulp-xunit-runner';
-var XUNIT_CONSOLE = 'xunit-console.exe';
-var XUNIT_X86_CONSOLE = 'xunit-console-x86.exe';
+var PLUGIN_NAME = 'gulp.xunit.runner';
+var XUNIT_CONSOLE = 'xunit.console.exe';
+var XUNIT_X86_CONSOLE = 'xunit.console.x86.exe';
 
 // Main entry point
 var runner = function gulpXunitRunner(opts) {

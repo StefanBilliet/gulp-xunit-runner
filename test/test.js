@@ -21,26 +21,26 @@ var path = require('path');
 
 			it('Should not quote a non-quoted string', function () {
 				opts = {
-					executable: 'C:\\xunit\\bin\\xunit-console.exe'
+					executable: 'C:\\xunit\\bin\\xunit.console.exe'
 				};
 
-				expect(xunit.getExecutable(opts)).to.equal('C:\\xunit\\bin\\xunit-console.exe');
+				expect(xunit.getExecutable(opts)).to.equal('C:\\xunit\\bin\\xunit.console.exe');
 			});
 
 			it('Should unquote a double-quoted string', function () {
 				opts = {
-					executable: '"C:\\xunit\\bin\\xunit-console.exe"'
+					executable: '"C:\\xunit\\bin\\xunit.console.exe"'
 				};
 
-				expect(xunit.getExecutable(opts)).to.equal('C:\\xunit\\bin\\xunit-console.exe');
+				expect(xunit.getExecutable(opts)).to.equal('C:\\xunit\\bin\\xunit.console.exe');
 			});
 
 			it('Should unquote a single-quoted string', function () {
 				opts = {
-					executable: "'C:\\xunit\\bin\\xunit-console.exe'"
+					executable: "'C:\\xunit\\bin\\xunit.console.exe'"
 				};
 
-				expect(xunit.getExecutable(opts)).to.equal('C:\\xunit\\bin\\xunit-console.exe');
+				expect(xunit.getExecutable(opts)).to.equal('C:\\xunit\\bin\\xunit.console.exe');
 			});
 
 			it('Should add the anycpu executable if only a path is passed and no platform is specified', function () {
@@ -48,7 +48,7 @@ var path = require('path');
 					executable: path.join('C:', 'xunit', 'bin')
 				};
 
-				expect(xunit.getExecutable(opts)).to.equal(path.join('C:', 'xunit', 'bin', 'xunit-console.exe'));
+				expect(xunit.getExecutable(opts)).to.equal(path.join('C:', 'xunit', 'bin', 'xunit.console.exe'));
 			});
 
 			it('Should add the anycpu executable if only a path is passed and anycpy platform is specified', function () {
@@ -57,7 +57,7 @@ var path = require('path');
 					platform  : 'anycpu'
 				};
 
-				expect(xunit.getExecutable(opts)).to.equal(path.join('C:', 'xunit', 'bin', 'xunit-console.exe'));
+				expect(xunit.getExecutable(opts)).to.equal(path.join('C:', 'xunit', 'bin', 'xunit.console.exe'));
 			});
 
 			it('Should add the x86 executable if only a path is passed and platform is x86', function () {
@@ -66,11 +66,11 @@ var path = require('path');
 					platform  : 'x86'
 				};
 
-				expect(xunit.getExecutable(opts)).to.equal(path.join('C:', 'xunit', 'bin', 'xunit-console-x86.exe'));
+				expect(xunit.getExecutable(opts)).to.equal(path.join('C:', 'xunit', 'bin', 'xunit.console.x86.exe'));
 			});
 
 			it('Should be the anycpu executable if no path is passed and no platform is specified', function () {
-				expect(xunit.getExecutable({})).to.equal('xunit-console.exe');
+				expect(xunit.getExecutable({})).to.equal('xunit.console.exe');
 			});
 
 			it('Should be the anycpu executable if no path is passed and anycpy platform is specified', function () {
@@ -78,7 +78,7 @@ var path = require('path');
 					platform: 'anycpu'
 				};
 
-				expect(xunit.getExecutable(opts)).to.equal('xunit-console.exe');
+				expect(xunit.getExecutable(opts)).to.equal('xunit.console.exe');
 			});
 
 			it('Should be the x86 executable if no path is passed and platform is x86', function () {
@@ -86,7 +86,7 @@ var path = require('path');
 					platform: 'x86'
 				};
 
-				expect(xunit.getExecutable(opts)).to.equal('xunit-console-x86.exe');
+				expect(xunit.getExecutable(opts)).to.equal('xunit.console.x86.exe');
 			});
 		});
 
@@ -97,7 +97,7 @@ var path = require('path');
 
 			it('Should throw an error with no assemblies', function (cb) {
 				stream = xunit({
-					executable: 'C:\\xunit\\bin\\xunit-console.exe'
+					executable: 'C:\\xunit\\bin\\xunit.console.exe'
 				});
 				stream.on('error', function (err) {
 					expect(err.message).to.equal('File may not be null.');
@@ -108,7 +108,7 @@ var path = require('path');
 
 			it('Should have correct options with assemblies only.', function () {
 				opts = {
-					executable: 'C:\\xunit\\bin\\xunit-console.exe'
+					executable: 'C:\\xunit\\bin\\xunit.console.exe'
 				};
 
 				assemblies = ['First.Test.dll', 'Second.Test.dll'];
@@ -118,7 +118,7 @@ var path = require('path');
 
 			it('Should have correct options with options and assemblies.', function () {
 				opts = {
-					executable: 'C:\\xunit\\bin\\xunit-console.exe',
+					executable: 'C:\\xunit\\bin\\xunit.console.exe',
 					options: {
               parallel: 'none',
               maxthreads: '1',
