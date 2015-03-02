@@ -119,12 +119,18 @@ var path = require('path');
 			it('Should have correct options with options and assemblies.', function () {
 				opts = {
 					executable: 'C:\\xunit\\bin\\xunit-console.exe',
-					options   : {
-						nologo   : true,
-						parallel   : 'none',
-						trait: 'name=value',
-						xml: 'TestResults.xml'
-					}
+					options: {
+              parallel: 'none',
+              maxthreads: '1',
+              noshadow: true,
+              teamcity: true,
+              appveyor: true,
+              quiet: true,
+              debug: true,
+              trait: "desiredTrait=value",
+              notrait: "unwantedTrait=value",
+            	xml: 'TestResults.xml'
+            }
 				};
 
 				assemblies = ['First.Test.dll', 'Second.Test.dll'];
@@ -134,11 +140,19 @@ var path = require('path');
 					[
 						'First.Test.dll',
 						'Second.Test.dll',
-						'-nologo',
 						'-parallel',
 						'none',
+						'-maxthreads',
+						'1',
+						'-noshadow',
+						'-teamcity',
+						'-appveyor',
+						'-quiet',
+						'-debug',
 						'-trait',
-						'name=value',
+						'desiredTrait=value',
+						'-notrait',
+						'unwantedTrait=value',
 						'-xml',
 						'TestResults.xml'
 					]);

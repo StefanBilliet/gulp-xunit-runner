@@ -61,10 +61,7 @@ runner.getArguments = function (options, assemblies) {
 function parseSwitches(options) {	
 	var switches = _.map(options, function (val, key) {
 		if (typeof val === 'boolean') {
-			if (val) {
-				return ['-' + key];
-			}
-			return [];
+			return val ? ['-' + key] : [];
 		}
 		if (typeof val === 'string') {
 			var qualifier = val.trim().indexOf(' ') > -1 ? '"' : '';

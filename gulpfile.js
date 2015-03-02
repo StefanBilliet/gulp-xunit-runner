@@ -28,6 +28,14 @@ gulp.task('endtoend', function () {
         .pipe(xunit({
             executable: "C:/Workspace/gulp-xunit-runner/packages/xunit.runners.2.0.0-rc3-build2880/tools/xunit.console.exe",
             options: {
+              parallel: 'none',
+              maxthreads: '1',
+              noshadow: true,
+              teamcity: false,
+              appveyor: false,
+              quiet: false,
+              debug: false,
+              notrait: "name=value",
             	xml: 'test_output.xml'
             }            
         }));
