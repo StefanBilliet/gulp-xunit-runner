@@ -1,4 +1,4 @@
-#gulp-nunit-runner
+#gulp-xunit-runner
 ##Installation
 From the root of your project (where your `gulpfile.js` is), issue the following command:
 
