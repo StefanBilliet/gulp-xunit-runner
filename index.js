@@ -15,7 +15,7 @@ var XUNIT_CONSOLE = 'xunit-console.exe';
 var XUNIT_X86_CONSOLE = 'xunit-console-x86.exe';
 
 // Main entry point
-var runner = function gulpNunitRunner(opts) {
+var runner = function gulpXunitRunner(opts) {
 	
 	opts = opts || {};
 
