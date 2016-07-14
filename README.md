@@ -78,7 +78,7 @@ gulp.task('unit-test', function () {
       useMono: true,
       options: {
         nologo: true,
-	noshadow: true
+	    noshadow: true
       }      
     }));
 });
