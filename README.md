@@ -61,6 +61,34 @@ This would result in the following command:
 C:/xunit/bin/xunit-console.exe /nologo /config:"Release" /transform:"myTransform.xslt" "C:\full\path\to\Database.Test.dll" "C:\full\path\to\Services.Test.dll"
 ```
 
+### Mono
+
+Running xUnit on Mono for those needed running it on Mac and Linux. 
+Probably will run only with xUnit 2.1.0+, because of some issues with xUnit and mono.
+Use latest mono possible e.g. `4.4.1` or above.
+
+```javascript
+var gulp = require('gulp'),
+    xunit = require('gulp-xunit-runner');
+
+gulp.task('unit-test', function () {
+  return gulp.src(['**/*.Test.dll'], {read: false})
+    .pipe(xunit({
+      executable: './packages/xunit.runner.console.2.1.0/tools/xunit.console.exe',
+      useMono: true,
+      options: {
+        nologo: true,
+				noshadow: true
+      }      
+    }));
+});
+```
+This would result in the following command:
+
+```bash
+    mono "./packages/xunit.runner.console.2.1.0/tools/xunit.console.exe" -nologo -noshadow "/path/to/src/Database.Test.dll" "/path/to/src/Services.Test.dll"
+```
+
 ## Options
 
 Below are all avialable options.
@@ -70,6 +98,14 @@ xunit({
     // The XUnit bin folder or the full path of the console runner.
     // If not specified the XUnit bin folder must be in the `PATH`.
     executable: 'path to xunit console runner',
+
+    // is xUnit runnnig on Mono. 
+    // Probably will work with xUnit 2.1.0+. 
+    // Mac and Linux only, not sure about Windows.
+    // Assumes that 'mono' command is in the `PATH`.
+    // `false` by default.
+    useMono: true
+             false,
 
     // The options below map directly to the XUnit console runner. See here
     // for more info: http://www.xunit.org/index.php?p=consoleCommandLine&r=2.6.3
