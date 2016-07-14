@@ -78,15 +78,15 @@ gulp.task('unit-test', function () {
       useMono: true,
       options: {
         nologo: true,
-				noshadow: true
+	noshadow: true
       }      
     }));
 });
 ```
 This would result in the following command:
 
-```bash
-    mono "./packages/xunit.runner.console.2.1.0/tools/xunit.console.exe" -nologo -noshadow "/path/to/src/Database.Test.dll" "/path/to/src/Services.Test.dll"
+```shell
+mono "./packages/xunit.runner.console.2.1.0/tools/xunit.console.exe" -nologo -noshadow "/path/to/src/Database.Test.dll" "/path/to/src/Services.Test.dll"
 ```
 
 ## Options
