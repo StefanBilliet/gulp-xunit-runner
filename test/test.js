@@ -116,6 +116,26 @@ var path = require('path');
 				expect(xunit.getArguments(opts, assemblies)).to.deep.equal(['First.Test.dll', 'Second.Test.dll']);
 			});
 
+			it('Should get proper arguments for mono.', function () {
+				opts = {
+					executable: './packages/xunit.runner.console.2.1.0/tools/xunit.console.exe',
+					useMono: true
+				};
+
+				assemblies = ['First.Test.dll', 'Second.Test.dll'];
+				expect(xunit.getArguments(opts, assemblies)).to.deep.equal(['./packages/xunit.runner.console.2.1.0/tools/xunit.console.exe','First.Test.dll', 'Second.Test.dll']);
+			});	
+
+			it('Should use mono as executable.', function () {
+				opts = {
+					executable: './packages/xunit.runner.console.2.1.0/tools/xunit.console.exe',
+					useMono: true
+				};
+
+				assemblies = ['First.Test.dll', 'Second.Test.dll'];				
+				expect(xunit.getExecutable(opts)).to.equal('mono');
+			});							
+
 			it('Should have correct options with options and assemblies.', function () {
 				opts = {
 					executable: 'C:\\xunit\\bin\\xunit.console.exe',

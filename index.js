@@ -35,7 +35,7 @@ var runner = function gulpXunitRunner(opts) {
 	return stream;
 };
 
-runner.getExecutable = function (options) {
+runner.getExec = function (options) {
 	
 	var consoleRunner = options.platform === 'x86' ? XUNIT_X86_CONSOLE : XUNIT_CONSOLE;
 	if (!options.executable) return consoleRunner;
@@ -45,13 +45,22 @@ runner.getExecutable = function (options) {
 		path.join(executable, consoleRunner) : executable;
 };
 
+runner.getExecutable = function (options) {
+	if (options.useMono === true) { return 'mono'; }
+	return runner.getExec(options);
+};
+
 runner.getArguments = function (options, assemblies) {
 	var args = [];
-	
+
 	args = args.concat(assemblies);
 
 	if (options.options) {
 		args = args.concat(parseSwitches(options.options));
+	}
+
+	if (options.useMono === true) {
+		args.unshift(runner.getExec(options));
 	}
 	
 	return args;
